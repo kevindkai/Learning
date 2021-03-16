@@ -1,0 +1,35 @@
+1、首先在工作区打开Git Bash
+2、对工作区所在文件夹进行初始化
+	git init
+3、设置签名，用于区分不同开发人员身份
+	项目级别/仓库级别：仅在当前本地仓库范围内有效
+	git config user.name wangkai
+	git config user.email wangkai@gmail.com
+	信息保存在：./git/config
+	系统用户界别：当前登录操作系统的用户范围
+	git config --global user.name wangaki
+	git config --global user.email wangkai@163.com
+	信息保存至：~/.gitconfig文件中
+4、常用命令（暂存区：暂存当前操作；本地库：本地所有已提交的历史记录）
+	①查看当前工作区、赞成区状态：git status
+	②将工作区的“新建/修改”文件添加到暂存区：git add [filename](.代表当前工作区所有文件）
+	③将暂存区文件提交到本地库：git commit -m "commit message" [filename]
+	④查看历史记录：git log    git log --pretty=oneline    git log --oneline     git reflog
+	⑤返回到某个快照版本：git reset --hard [局部索引值]
+	⑥删除并找回：删除前，文件存在时的状态已提交到了本地库，然后使用返回快照方式找回
+	⑦比较文件差异：(不加filename表示所有文件）
+		a、将工作区的文件与暂存区的进行比较：git diff [filename]
+		b、将工作区的文件与本地库历史记录进行比较：git diff [历史版本] [filename]
+	⑧创建分支：git branch [分支名]
+	⑨查看分支：git branch -v
+	⑩切换分支：git checkout [分支名]
+	⑾合并分支：首先切换到接受修改的分支(被合并、增加新内容）上：git checkout [被合并分支名]
+		     接下来执行merge命令：git merge [有新内容分支名]
+	⑿创建远程仓库别名：git remote add [nickname] [远程地址]
+		git remote -v：查看当前所有远程地址别名
+	⒀将本地仓库文件推送到远程仓库：git push [nickname] [分支名]
+	⒁克隆：git clone [远程地址]
+	⒂拉取：pull = fetch + merge
+		git fetch [nickname] [分支名]
+		git merge [nickname/分支名]
+		git pull [nickname] [分支名]
